@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  arxiv_text_extractor:
+    build: .
+    container_name: arxiv-text-extractor
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1

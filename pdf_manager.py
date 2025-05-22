@@ -3,7 +3,7 @@ import tempfile
 import os
 
 from pdfminer.high_level import extract_text
-from cleaning import clean_text
+import text_preprocessor
 
 
 async def process_pdf(arxiv_id: str, pdf_url: str) -> str:
@@ -18,4 +18,4 @@ async def process_pdf(arxiv_id: str, pdf_url: str) -> str:
 
             text = extract_text(tmp_path)
             os.remove(tmp_path)
-            return clean_text(text)
+            return text_preprocessor.clean_text(text)

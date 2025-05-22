@@ -3,10 +3,10 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, String, DateTime, Integer, Enum, Text
 import enum
 
-Base = declarative_base()
+__Base = declarative_base()
 
 
-class FailedExtractPaper(AsyncAttrs, Base):
+class FailedExtractPaper(AsyncAttrs, __Base):
     __tablename__ = "failed_extract_papers"
     __table_args__ = {"schema": "arxiv_raw"}
 
@@ -22,7 +22,7 @@ class TaskStatus(str, enum.Enum):
     fail = "fail"
 
 
-class TaskQueue(AsyncAttrs, Base):
+class TaskQueue(AsyncAttrs, __Base):
     __tablename__ = "task_queue"
     __table_args__ = {"schema": "arxiv_raw"}
 
@@ -35,7 +35,7 @@ class TaskQueue(AsyncAttrs, Base):
     retries = Column(Integer, default=0)
 
 
-class Paper(AsyncAttrs, Base):
+class Paper(AsyncAttrs, __Base):
     __tablename__ = "papers"
     __table_args__ = {"schema": "arxiv_raw"}
 

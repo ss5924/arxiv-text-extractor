@@ -1,8 +1,9 @@
-from config import POSTGRESQL_DB_URL, MONGO_DB_URL
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from motor.motor_asyncio import AsyncIOMotorClient
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
-# SQLAlchemy ORM 사용
+from config import POSTGRESQL_DB_URL, MONGO_DB_URL
+
+# POSTGRESQL
 __engine = create_async_engine(
     url=POSTGRESQL_DB_URL,
     pool_size=10,
